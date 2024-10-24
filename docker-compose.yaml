@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql
+    container_name: mysql-test_kerja
+    restart: unless-stopped
+    tty : true
+    ports:
+      - "127.0.0.1:3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: TKLqNHoNmjWTnWD@test_kerja
+      MYSQL_DATABASE: test_kerja
+      MYSQL_USER: test_kerja
+      MYSQL_PASSWORD: TKLqNHoNmjWTnWD@test_kerja
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./mysql:/var/lib/mysql              
+  app:
+    image: golang:1.23 # Menggunakan image resmi Golang
+    working_dir: /app  # Set direktori kerja di dalam container
+    volumes:
+      - ./app:/app
+      - ./wait-for-it.sh:/wait-for-it.sh 
+    ports:
+      - "0.0.0.0:8080:8080"
+    command: >
+      sh -c "chmod +x /wait-for-it.sh && /wait-for-it.sh mysql:3306 -- go mod download && go run main.go"
