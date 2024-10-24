@@ -17,7 +17,7 @@ services:
       SERVICE_NAME: mysql
     volumes:
       - ./mysql:/var/lib/mysql              
-  app:
+  app: 
     image: golang:1.23 # Menggunakan image resmi Golang
     working_dir: /app  # Set direktori kerja di dalam container
     volumes:
@@ -27,3 +27,4 @@ services:
       - "0.0.0.0:8080:8080"
     command: >
       sh -c "chmod +x /wait-for-it.sh && /wait-for-it.sh mysql:3306 -- go mod download && go run main.go"
+      
