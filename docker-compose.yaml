@@ -3,7 +3,7 @@ version: '3.8'
 services:
   mysql:
     image: mysql
-    container_name: mysql-test_kerja
+    container_name: mysql
     restart: unless-stopped
     tty : true
     ports:
