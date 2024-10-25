@@ -42,6 +42,10 @@ belajar-app-1  | 2024/10/25 03:17:18 Server is running on :8080
 List APi
 
 <pre>
+Authorization Basic Auth 
+username = admin
+password = admin
+
 Category
 http://localhost:8080/categories        method:get
 http://localhost:8080/categories/{id}   method:get
