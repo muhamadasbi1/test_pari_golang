@@ -21,7 +21,7 @@ $ docker-compose up
 
 waiting container go running
 
-```text
+<pre>
 belajar-app-1  | wait-for-it.sh: timeout occurred after waiting 15 seconds for mysql:3306
 mysql          | 2024-10-25T03:16:56.994005Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
 mysql          | 2024-10-25T03:16:57.514258Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
@@ -35,4 +35,4 @@ belajar-app-1  | 2024/10/25 03:17:18 Migration executed successfully
 belajar-app-1  | 2024/10/25 03:17:18 Migration executed successfully
 belajar-app-1  | 2024/10/25 03:17:18 Migration executed successfully
 belajar-app-1  | 2024/10/25 03:17:18 Server is running on :8080
-```
+</pre>
