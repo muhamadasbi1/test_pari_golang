@@ -44,6 +44,10 @@ func main() {
 	// dataSource := "test_kerja:TKLqNHoNmjWTnWD@test_kerja@tcp(mysql:3306)/test_kerja" // Perbaiki format datasource
 
 	log.Println("Starting the server...")
+	// http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	// 	log.Println("Received request for:", r.URL.Path)
+	// 	w.Write([]byte("Hello, world!"))
+	// })
 	database, err := utils.InitDB(dataSource)
 	if err != nil {
 		log.Fatal(err)
@@ -68,6 +72,6 @@ func main() {
 	routes_item.SetupRoutes(database)
 
 	log.Println("Server is running on :8080")
-	http.Handle("/", cors(http.DefaultServeMux)) // Wrap the default mux with CORS
+	// http.Handle("/", cors(http.DefaultServeMux)) // Wrap the default mux with CORS
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
